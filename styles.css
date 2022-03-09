@@ -1,0 +1,85 @@
+body{
+    background-color: pink;
+    display:flex;
+    justify-content: center;
+}
+
+.container{
+    height:550px;
+    width:400px;
+    border:1px solid black;
+    border-radius:10px;
+    background-color: navy;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.screen {
+    width:350px;
+    height:100px;
+    border:1px solid black;
+    margin:25px;
+    border-radius:10px;
+    background-color:antiquewhite;
+}
+
+.calculation, .result{
+    height:50%;
+    border-radius:10px;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size:24px;
+    padding-right:10px;
+    overflow:auto;
+
+}
+
+.reset{
+    width:350px;
+    height:50px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:10px;
+}
+
+.allClear, .clear{
+    border:1px solid black;
+    border-radius:5px;
+    background-color: red;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color:white;
+}
+
+
+.buttons{
+    height:300px;
+    width:350px;
+    
+    margin:25px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap:10px;
+}
+
+.keys, .execute, .equals {
+    border: 1px solid black;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size:30px;
+    background-color: whitesmoke;
+}
+.keys:hover, .execute:hover, .equals:hover {
+    background-color: lightgray;
+}
+
+.keys:active, .execute:active, .equals:active {
+    background-color: darkgray;
