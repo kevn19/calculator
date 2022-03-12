@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Press+Start+2P&display=swap');
+
+
+
 body{
-    background-color: pink;
+    background-color: orange;
     display:flex;
     justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size:50px;
 }
 
 .container{

@@ -119,4 +119,3 @@ function del() {
     }
 }
 
-delet.addEventListener("click",del)
