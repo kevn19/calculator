@@ -55,6 +55,10 @@ body{
     color:white;
 }
 
+.allClear:active, .clear:active{
+    background-color: maroon;
+}
+
 
 .buttons{
     height:300px;
@@ -68,7 +72,7 @@ body{
     gap:10px;
 }
 
-.keys, .execute, .equals {
+.keys, .execute, .equals, .decimal {
     border: 1px solid black;
     display:flex;
     align-items: center;
@@ -77,9 +81,9 @@ body{
     font-size:30px;
     background-color: whitesmoke;
 }
-.keys:hover, .execute:hover, .equals:hover {
+.keys:hover, .execute:hover, .equals:hover,.decimal:hover {
     background-color: lightgray;
 }
 
-.keys:active, .execute:active, .equals:active {
+.keys:active, .execute:active, .equals:active,.decimal:active {
     background-color: darkgray;
