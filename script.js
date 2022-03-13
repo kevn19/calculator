@@ -75,26 +75,27 @@ operators.forEach(operation=>operation.addEventListener("click", ()=>{
 ))
 
 function evaluate() {
-    switch(true){
-        case operator == "×":
-             resultant = operandOne*operandTwo;
-        break
-        case operator == "÷":
-             resultant = operandOne/operandTwo;
-        break
-        case operator == "+":
-             resultant = Number(operandOne) + Number(operandTwo);
-        break
-        case operator == "−":
-             resultant = operandOne - operandTwo
+    if(operandOne!=""&&operator!=""&&operandTwo!=""){
+        switch(true){
+            case operator == "×":
+                resultant = operandOne*operandTwo;
+            break
+            case operator == "÷":
+                resultant = operandOne/operandTwo;
+            break
+            case operator == "+":
+                resultant = Number(operandOne) + Number(operandTwo);
+            break
+            case operator == "−":
+                resultant = operandOne - operandTwo
 
+        }
+        resultScreen.textContent = resultant;
+        operator=""
+        operandOne = resultant
+        operandTwo=""
+        expression = resultant;
     }
-    resultScreen.textContent = resultant;
-    operator=""
-    operandOne = resultant
-    operandTwo=""
-    expression = resultant;
-
 }
 
 function reset() {
@@ -118,4 +119,121 @@ function del() {
         operandTwo=operandTwo.slice(0,-1);
     }
 }
+
+function addDecimal(){
+    if (operandOne.includes(".") && operandTwo==""&&operator==""){
+        return;
+    }else if (operator == "" && operandOne==""){
+        operandOne+=decimal.textContent;
+        expression+="0"+decimal.textContent;
+        calculation.textContent = expression
+    }else if (operator==""){
+        operandOne+=decimal.textContent;
+        expression+=decimal.textContent;
+        calculation.textContent = expression
+    }
+    else if (operandTwo.includes(".")) {
+        return;
+    }else if (operandTwo=="" && operandOne!=""&&operator!=""){
+        operandTwo+=decimal.textContent;
+        expression+="0"+decimal.textContent;
+        calculation.textContent = expression
+    }
+    else if (operandTwo != ""){
+        operandTwo+=decimal.textContent;
+        expression+=decimal.textContent;
+        calculation.textContent = expression
+    }
+}
+
+
+window.addEventListener("keydown",(e)=>{
+    console.log(e.key)
+    if(e.key==="."){
+        addDecimal()
+    }
+})
+
+
+window.addEventListener("keydown",(e)=>{
+    switch(true){
+        case e.key == "1":
+        case e.key == "2":
+        case e.key == "3":
+        case e.key == "4":
+        case e.key == "5":
+        case e.key == "6":
+        case e.key == "7":
+        case e.key == "8":
+        case e.key == "9":
+            if (operator ==""){
+                operandOne += e.key;
+            }else {
+                operandTwo+=e.key;
+            }
+            expression+=e.key;
+            calculation.textContent = expression
+    }
+})
+
+window.addEventListener("keydown",(e)=>{
+    switch(true){
+        case e.key == "+":
+        case e.key == "-":
+            if(operator!="" && operandTwo != ""){
+                evaluate()
+                operator+=e.key;
+                expression+=e.key;
+                calculation.textContent = expression;
+            }else if(operator!="" && operandTwo==""){
+                return;
+            }
+            
+            else{
+                operator+=e.key;
+                expression+=e.key;
+                calculation.textContent = expression;
+            }
+        case e.key == "*":
+            if(operator!="" && operandTwo != ""){
+                evaluate()
+                operator+="×";
+                expression+="×";
+                calculation.textContent = expression;
+            }else if(operator!="" && operandTwo==""){
+                return;
+            }
+            
+            else{
+                operator+="×";
+                expression+="×";
+                calculation.textContent = expression;
+            }
+        case e.key == "/":
+            if(operator!="" && operandTwo != ""){
+                evaluate()
+                operator+="÷";
+                expression+="÷";
+                calculation.textContent = expression;
+            }else if(operator!="" && operandTwo==""){
+                return;
+            }
+            
+            else{
+                operator+="÷";
+                expression+="÷";
+                calculation.textContent = expression;
+            }
+    }
+})
+
+window.addEventListener("keydown",(e)=>{
+    if(e.key == "Enter"){
+        evaluate();
+    }else if (e.key == "Backspace"){
+        del()
+    }
+})
+
+
 
