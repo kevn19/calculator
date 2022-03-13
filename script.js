@@ -157,6 +157,7 @@ window.addEventListener("keydown",(e)=>{
 
 window.addEventListener("keydown",(e)=>{
     switch(true){
+        case e.key == "0":
         case e.key == "1":
         case e.key == "2":
         case e.key == "3":
